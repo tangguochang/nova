@@ -39,7 +39,7 @@ get_spice_console = {
             'properties': {
                 'type': {
                     'type': 'string',
-                    'enum': ['spice-html5'],
+                    'enum': ['spice-html5' , 'spice'],
                 },
             },
             'required': ['type'],
@@ -99,7 +99,7 @@ create_v26 = {
                 },
                 'type': {
                     'enum': ['novnc', 'xvpvnc', 'rdp-html5',
-                             'spice-html5', 'serial'],
+                             'spice-html5', 'serial' , 'spice'],
                 },
             },
             'required': ['protocol', 'type'],
@@ -121,7 +121,7 @@ create_v28 = {
                 },
                 'type': {
                     'enum': ['novnc', 'xvpvnc', 'rdp-html5',
-                             'spice-html5', 'serial', 'webmks'],
+                             'spice-html5', 'serial', 'webmks' , 'spice'],
                 },
             },
             'required': ['protocol', 'type'],
