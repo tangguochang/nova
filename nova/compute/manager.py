@@ -4536,7 +4536,7 @@ class ComputeManager(manager.Manager):
         if not CONF.spice.enabled:
             raise exception.ConsoleTypeUnavailable(console_type=console_type)
 
-        if console_type == 'spice-html5':
+        if console_type == 'spice-html5' or console_type == 'spice':
             # For essex, spicehtml5proxy_base_url must include the full path
             # including the html file (like http://myhost/spice_auto.html)
             access_url = '%s?token=%s' % (CONF.spice.html5proxy_base_url,
