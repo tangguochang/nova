@@ -400,9 +400,10 @@ class DriverImageBlockDevice(DriverVolumeBlockDevice):
     def attach(self, context, instance, volume_api,
                virt_driver, wait_func=None, do_check_attach=True):
         if not self.volume_id:
+            name = instance.id + "_sysvolume"
             av_zone = _get_volume_create_az_value(instance)
             vol = volume_api.create(context, self.volume_size,
-                                    '', '', image_id=self.image_id,
+                                    name, '', image_id=self.image_id,
                                     volume_type=instance.metadata['volume_type'],
                                     availability_zone=av_zone)
             if wait_func:
