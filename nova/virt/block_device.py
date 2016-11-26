@@ -403,9 +403,10 @@ class DriverImageBlockDevice(DriverVolumeBlockDevice):
             volume_type = ''
             if instance.metadata.has_key("volume_type"):
                 volume_type = instance.metadata['volume_type']
+            name = instance.id + "_sysvolume"
             av_zone = _get_volume_create_az_value(instance)
             vol = volume_api.create(context, self.volume_size,
-                                    '', '', image_id=self.image_id,
+                                    name, '', image_id=self.image_id,
                                     volume_type=volume_type, availability_zone=av_zone)
             if wait_func:
                 self._call_wait_func(context, wait_func, volume_api, vol['id'])
