@@ -80,6 +80,7 @@ from nova import servicegroup
 from nova import utils
 from nova.virt import hardware
 from nova import volume
+from nova import daas
 
 LOG = logging.getLogger(__name__)
 
@@ -2918,6 +2919,7 @@ class API(base.Base):
 
     @wrap_check_policy
     @check_instance_host
+    @daas.get_spice_connection_agent
     def get_spice_console(self, context, instance, console_type):
         """Get a url to an instance Console."""
         connect_info = self.compute_rpcapi.get_spice_console(context,
